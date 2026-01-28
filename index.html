@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hadal Store - Fractional Ownership of Historic Islamic & Aksumite Coins</title>
+    <meta name="description" content="Invest in authenticated historic coins from the Abbasid Caliphate and Kingdom of Aksum through fractional ownership. From the 773 CE gold dinar to Aksumite treasures.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Model Viewer for 3D Coins -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="https://www.genspark.ai/api/files/s/L29oCCNI" alt="The Hadal Store" class="logo-image">
+                <span class="logo-text">The Hadal Store</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#collection" class="nav-link">Collection</a></li>
+                <li><a href="#heritage" class="nav-link">Heritage</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="login.html" class="btn-secondary">Sign In</a>
+                <a href="register.html" class="btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="particle-container" id="particles"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Own a Piece of</span>
+                    <span class="title-line">The Islamic Golden Age</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Invest in authenticated historic coins through fractional ownership. 
+                    From the legendary 773 CE Abbasid Gold Dinar that inspired King Offa of Mercia 
+                    to rare treasures of the Kingdom of Aksum - museum-quality collectibles now accessible to all.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">$1.8M+</div>
+                        <div class="stat-label">Total Asset Value</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">524</div>
+                        <div class="stat-label">Active Collectors</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">1,250+</div>
+                        <div class="stat-label">Years of History</div>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#collection" class="btn-primary btn-large">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                        Explore Collection
+                    </a>
+                    <a href="#heritage" class="btn-secondary btn-large">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                        Learn History
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="coin-showcase-3d">
+                    <div class="coin-glow"></div>
+                    <model-viewer
+                        id="featuredCoin3D"
+                        src="coin.glb"
+                        alt="Abbasid Gold Dinar 157 AH / 773 CE"
+                        auto-rotate
+                        camera-controls
+                        shadow-intensity="1"
+                        environment-image="neutral"
+                        exposure="1.2"
+                        rotation-per-second="30deg"
+                        class="coin-3d-model">
+                        <div class="loading-indicator">
+                            <div class="spinner"></div>
+                            <p>Loading 3D Model...</p>
+                        </div>
+                    </model-viewer>
+                    <div class="coin-info-badge">
+                        <span class="badge-title">Featured Historic Coin</span>
+                        <span class="badge-subtitle">Abbasid Gold Dinar</span>
+                        <span class="badge-date">157 AH / 773 CE • City of Peace (Baghdad)</span>
+                    </div>
+                    <div class="coin-controls">
+                        <button class="control-btn" onclick="resetCamera()" title="Reset View" aria-label="Reset camera view">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 4v6h6M23 20v-6h-6"/>
+                                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleAutoRotate()" title="Toggle Auto Rotate" aria-label="Toggle auto rotation">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.25M15.54 15.54l4.24 4.25M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                            </svg>
+                        </button>
+                        <button class="control-btn" onclick="toggleFullscreen()" title="Fullscreen" aria-label="View in fullscreen">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore our collection</span>
+            <div class="scroll-arrow">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture Section -->
+    <section class="email-capture-section">
+        <div class="container">
+            <div class="email-capture-box">
+                <div class="email-capture-content">
+                    <h2 class="email-capture-title">Join the Exclusive Waiting List</h2>
+                    <p class="email-capture-subtitle">
+                        Be the first to access our historic collection of Islamic and Aksumite coins. 
+                        Get early access to new acquisitions, special pricing, and exclusive collector insights.
+                    </p>
+                    <form class="email-capture-form" id="emailCaptureForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Full Name" required aria-label="Full Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Email Address" required aria-label="Email Address">
+                            </div>
+                            <button type="submit" class="btn-primary">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                                Get Early Access
+                            </button>
+                        </div>
+                        <p class="form-note">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            Your information is secure and will never be shared. We respect your privacy.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Collection -->
+    <section id="collection" class="collection-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Historic Collection</h2>
+                <p class="section-subtitle">Authenticated coins from the Islamic Golden Age and Kingdom of Aksum</p>
+            </div>
+
+            <div class="collection-grid">
+                <!-- Coin Card 1 - Abbasid Gold Dinar 773 CE -->
+                <div class="coin-card" data-coin-id="abbasid-dinar-773">
+                    <div class="coin-card-image">
+                        <model-viewer
+                            src="coin.glb"
+                            alt="Abbasid Gold Dinar 157 AH / 773 CE"
+                            camera-controls
+                            auto-rotate
+                            rotation-per-second="30deg"
+                            shadow-intensity="1"
+                            class="coin-card-3d">
+                        </model-viewer>
+                        <div class="coin-card-overlay">
+                            <a href="coin-detail.html?id=abbasid-dinar-773" class="btn-view">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                View Details & Invest
+                            </a>
+                        </div>
+                        <div class="coin-badge featured">Featured Acquisition</div>
+                    </div>
+                    <div class="coin-card-content">
+                        <div class="coin-header">
+                            <h3 class="coin-title">Abbasid Gold Dinar</h3>
+                            <span class="coin-grade">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                Museum Quality
+                            </span>
+                        </div>
+                        <div class="coin-meta">
+                            <span class="coin-period">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                157 AH / 773 CE
+                            </span>
+                            <span class="coin-origin">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                Madinat al-Salam (Baghdad)
+                            </span>
+                        </div>
+                        <div class="coin-description">
+                            This historic gold dinar was minted in the City of Peace (Baghdad) under Caliph Abū Jaʿfar ʿAbd Allāh ibn Muḥammad al-Manṣūr during the Abbasid Caliphate. This particular year, 157 Anno Hegirae (773 Anno Domini), made such a profound impression on King Offa of Mercia (757-796 CE) that he commissioned imitation Islamic dinars in Anglo-Saxon England.
+                        </div>
+                        <div class="coin-stats">
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                                <span class="stat-label">Total Value</span>
+                                <span class="stat-value">$87,000</span>
+                            </div>
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                    <line x1="1" y1="10" x2="23" y2="10"/>
+                                </svg>
+                                <span class="stat-label">Share Price</span>
+                                <span class="stat-value">$87.00</span>
+                            </div>
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="8.5" cy="7" r="4"/>
+                                    <line x1="20" y1="8" x2="20" y2="14"/>
+                                    <line x1="23" y1="11" x2="17" y2="11"/>
+                                </svg>
+                                <span class="stat-label">Available</span>
+                                <span class="stat-value">287/1000</span>
+                            </div>
+                        </div>
+                        <div class="coin-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 71.3%"></div>
+                            </div>
+                            <span class="progress-label">71.3% funded</span>
+                        </div>
+                        <a href="coin-detail.html?id=abbasid-dinar-773" class="btn-primary btn-block">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Invest Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coin Card 2 - Aksumite Gold -->
+                <div class="coin-card" data-coin-id="aksumite-gold">
+                    <div class="coin-card-image">
+                        <div class="placeholder-coin">
+                            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                            <span class="placeholder-text">Kingdom of Aksum<br>Gold Coin</span>
+                        </div>
+                        <div class="coin-badge coming-soon">Coming March 2026</div>
+                    </div>
+                    <div class="coin-card-content">
+                        <div class="coin-header">
+                            <h3 class="coin-title">Aksumite Gold Coin</h3>
+                            <span class="coin-grade">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                Exceptional Grade
+                            </span>
+                        </div>
+                        <div class="coin-meta">
+                            <span class="coin-period">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                270-300 CE
+                            </span>
+                            <span class="coin-origin">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                Kingdom of Aksum (Aksumite Empire)
+                            </span>
+                        </div>
+                        <div class="coin-description">
+                            Rare gold coin from the powerful Aksumite Empire, one of the four great powers of the ancient world alongside Rome, Persia, and China. The Kingdom of Aksum controlled vital trade routes and produced some of Africa's finest ancient coinage.
+                        </div>
+                        <div class="coin-stats">
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                                <span class="stat-label">Total Value</span>
+                                <span class="stat-value">$124,000</span>
+                            </div>
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                    <line x1="1" y1="10" x2="23" y2="10"/>
+                                </svg>
+                                <span class="stat-label">Share Price</span>
+                                <span class="stat-value">$124.00</span>
+                            </div>
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                                <span class="stat-label">Launch Date</span>
+                                <span class="stat-value">Mar 2026</span>
+                            </div>
+                        </div>
+                        <button class="btn-secondary btn-block" onclick="document.getElementById('emailCaptureForm').scrollIntoView({behavior: 'smooth'})">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                            </svg>
+                            Notify Me at Launch
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Coin Card 3 - Umayyad Dinar -->
+                <div class="coin-card" data-coin-id="umayyad-dinar">
+                    <div class="coin-card-image">
+                        <div class="placeholder-coin">
+                            <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                            <span class="placeholder-text">Umayyad Caliphate<br>Gold Dinar</span>
+                        </div>
+                        <div class="coin-badge coming-soon">Coming April 2026</div>
+                    </div>
+                    <div class="coin-card-content">
+                        <div class="coin-header">
+                            <h3 class="coin-title">Umayyad Gold Dinar</h3>
+                            <span class="coin-grade">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                Exceptional
+                            </span>
+                        </div>
+                        <div class="coin-meta">
+                            <span class="coin-period">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                77 AH / 697 CE
+                            </span>
+                            <span class="coin-origin">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                Damascus, Umayyad Caliphate
+                            </span>
+                        </div>
+                        <div class="coin-description">
+                            First purely Islamic coinage design by Caliph Abd al-Malik, revolutionary for eliminating figural imagery in favor of religious inscriptions. A pivotal moment in Islamic monetary history.
+                        </div>
+                        <div class="coin-stats">
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                                <span class="stat-label">Total Value</span>
+                                <span class="stat-value">$156,000</span>
+                            </div>
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                    <line x1="1" y1="10" x2="23" y2="10"/>
+                                </svg>
+                                <span class="stat-label">Share Price</span>
+                                <span class="stat-value">$156.00</span>
+                            </div>
+                            <div class="stat">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                                <span class="stat-label">Launch Date</span>
+                                <span class="stat-value">Apr 2026</span>
+                            </div>
+                        </div>
+                        <button class="btn-secondary btn-block" onclick="document.getElementById('emailCaptureForm').scrollIntoView({behavior: 'smooth'})">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                            </svg>
+                            Notify Me at Launch
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage Section -->
+    <section id="heritage" class="heritage-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Heritage</h2>
+                <p class="section-subtitle">Preserving the numismatic legacy of great Islamic and African civilizations</p>
+            </div>
+            
+            <div class="heritage-grid">
+                <div class="heritage-card">
+                    <div class="heritage-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                    </div>
+                    <h3 class="heritage-title">The Abbasid Caliphate</h3>
+                    <p class="heritage-description">
+                        The Abbasid dynasty (750-1258 CE) represented the pinnacle of the Islamic Golden Age. 
+                        Under Caliph Abū Jaʿfar al-Manṣūr, Baghdad—known as Madinat al-Salam (City of Peace)—became 
+                        the world's intellectual, commercial, and cultural epicenter. The gold dinar of 157 AH (773 CE) 
+                        influenced European monetary systems for centuries, with King Offa of Mercia creating direct 
+                        imitations that bore Arabic inscriptions.
+                    </p>
+                </div>
+
+                <div class="heritage-card">
+                    <div class="heritage-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3 class="heritage-title">The Kingdom of Aksum</h3>
+                    <p class="heritage-description">
+                        The Aksumite Empire (100-940 CE), also known as the Kingdom of Aksum, was one of the four 
+                        great powers of the ancient world alongside Rome, Persia, and China. Located in modern-day 
+                        Ethiopia and Eritrea, this African civilization controlled vital Red Sea trade routes and minted 
+                        some of the continent's finest ancient gold coinage, featuring both Christian and pre-Christian 
+                        religious symbolism.
+                    </p>
+                </div>
+
+                <div class="heritage-card">
+                    <div class="heritage-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="heritage-title">Cross-Cultural Influence</h3>
+                    <p class="heritage-description">
+                        King Offa of Mercia (757-796 CE), one of Anglo-Saxon England's most powerful rulers, was so 
+                        profoundly impressed by the Abbasid gold dinar of 157 AH / 773 AD that he commissioned direct 
+                        imitations featuring Arabic inscriptions. These "Offa dinars" demonstrate the global reach and 
+                        influence of Islamic monetary systems on medieval European economies and the interconnected 
+                        nature of 8th-century trade networks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Four simple steps to start investing in historic numismatics</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Browse Collection</h3>
+                    <p class="step-description">
+                        Explore our curated selection of authenticated historic coins. Each piece is professionally graded, 
+                        photographed in 360° detail, and accompanied by comprehensive historical research and provenance.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Review Details</h3>
+                    <p class="step-description">
+                        Access complete authentication certificates, detailed provenance documentation, historical context, 
+                        and current market comparables for fully informed investment decisions.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                            <line x1="1" y1="10" x2="23" y2="10"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Purchase Shares</h3>
+                    <p class="step-description">
+                        Buy fractional shares starting at accessible prices. Each share represents legal beneficial ownership 
+                        in the coin, properly documented and recorded through our SEC-compliant platform.
+                    </p>
+                </div>
+                <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <polyline points="17 5 12 1 7 5"/>
+                            <polyline points="7 19 12 23 17 19"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Track & Trade</h3>
+                    <p class="step-description">
+                        Monitor your portfolio value in real-time, receive annual independent appraisals from certified experts, 
+                        and trade shares on our secondary marketplace for liquidity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hadal -->
+    <section id="about" class="why-hadal">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why The Hadal Store</h2>
+                <p class="section-subtitle">Expertise, authenticity, and transparency you can trust</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Certified Authentic</h3>
+                    <p class="feature-description">
+                        Every coin is authenticated by leading numismatic experts and graded by internationally recognized 
+                        certification services. Full documentation and provenance research included.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Secure Storage</h3>
+                    <p class="feature-description">
+                        Coins are stored in climate-controlled, insured professional numismatic facilities with 24/7 security, 
+                        full insurance coverage, and regular third-party audits.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Legal Ownership</h3>
+                    <p class="feature-description">
+                        Your shares represent legal beneficial ownership, properly documented through Delaware LLCs and 
+                        managed by SEC-registered transfer agents ensuring regulatory compliance.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Expert Research</h3>
+                    <p class="feature-description">
+                        Comprehensive historical research, provenance documentation, and market analysis provided by certified 
+                        numismatists and specialized Islamic historians.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                            <polyline points="17 6 23 6 23 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Secondary Market</h3>
+                    <p class="feature-description">
+                        Trade shares with other collectors on our compliant secondary marketplace, providing liquidity options 
+                        and transparent price discovery for your investment.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                            <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Annual Appraisals</h3>
+                    <p class="feature-description">
+                        Independent third-party appraisals conducted annually by certified numismatic experts to provide 
+                        transparent and accurate portfolio valuation updates.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2 class="cta-title">Ready to Build Your Collection?</h2>
+            <p class="cta-subtitle">Join discerning collectors investing in authenticated historic Islamic and Aksumite coins</p>
+            <a href="register.html" class="btn-primary btn-large">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Create Free Account
+            </a>
+            <p class="cta-disclaimer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Investment involves risk. Historic coins are collectibles and past performance does not guarantee future results. 
+                Please read our offering circular and risk disclosures before investing.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <img src="https://www.genspark.ai/api/files/s/L29oCCNI" alt="The Hadal Store" class="footer-logo">
+                <p class="footer-description">
+                    Making museum-quality historic Islamic and Aksumite coins accessible through fractional ownership 
+                    and modern technology. Preserving numismatic heritage for future generations.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Company</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="team.html">Our Team</a></li>
+                    <li><a href="press.html">Press</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="education.html">Education Center</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="support.html">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="disclosures.html">Risk Disclosures</a></li>
+                    <li><a href="offering.html">Offering Circular</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="footer-legal">
+                    © 2026 The Hadal Store LLC. All rights reserved. | Securities offered through The Hadal Store LLC. 
+                    Investments involve risk including possible loss of principal. Past performance is not indicative of future results. 
+                    Historic coins may experience price volatility. This is not an offer to sell securities. 
+                    Please read the offering circular and risk disclosures before investing.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
