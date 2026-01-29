@@ -1708,3 +1708,54 @@ body {
         padding: 12px 16px;
     }
 }
+/* Testimonials Section - GLASSMORPHISM */
+.testimonials-scroll {
+    background: transparent;  /* No more light gray */
+    padding: 60px 0;
+    overflow: hidden;
+}
+
+.testimonial-card {
+    /* GLASSMORPHISM EFFECT */
+    background: rgba(18, 18, 18, 0.75);  /* Dark semi-transparent */
+    backdrop-filter: blur(20px);          /* Blur background */
+    -webkit-backdrop-filter: blur(20px);  /* Safari support */
+    
+    /* GOLD LUXURY BORDER */
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 16px;
+    
+    /* LAYERED SHADOWS */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(212, 175, 55, 0.1);
+    
+    padding: 32px;
+    min-width: 400px;
+    color: #fff;
+}
+
+/* HOVER EFFECT - Lift with glow */
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(212, 175, 55, 0.3);
+    border-color: rgba(212, 175, 55, 0.4);
+    background: rgba(18, 18, 18, 0.85);
+}
+
+/* GOLD STARS WITH GLOW */
+.testimonial-stars {
+    color: #D4AF37;
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.5));
+}
+
+/* TYPOGRAPHY */
+.testimonial-card p {
+    color: #E5E7EB;      /* Light gray text */
+    font-style: italic;
+}
+
+.testimonial-author {
+    color: #D4AF37;      /* Gold name */
+    font-weight: 600;
+}
