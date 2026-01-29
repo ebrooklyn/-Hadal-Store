@@ -1858,3 +1858,182 @@ span:contains("collection") {
     color: #D4AF37;
     filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.5));
 }
+
+/* ============================================
+   GLASSMORPHISM ACTIVITY TICKER STYLING
+   ============================================ */
+
+/* Restyle FOMO notifications to match glassmorphism */
+.fomo-notification,
+.notification,
+.toast-notification {
+    background: rgba(10, 15, 30, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 
+                0 0 0 1px rgba(212, 175, 55, 0.1) !important;
+    padding: 1rem 1.5rem !important;
+    color: #fff !important;
+}
+
+/* Gold accent for notification content */
+.fomo-notification strong,
+.notification strong {
+    color: #D4AF37 !important;
+    font-weight: 600;
+}
+
+/* Remove white background and star emojis */
+.fomo-notification,
+.notification {
+    background-color: transparent !important;
+}
+
+/* Style notification icons (SVG) */
+.fomo-notification svg,
+.notification svg {
+    color: #D4AF37 !important;
+    filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.5)) !important;
+    width: 18px !important;
+    height: 18px !important;
+    vertical-align: middle !important;
+    margin-right: 8px !important;
+}
+
+/* Remove any emoji styling */
+.fomo-notification::before,
+.notification::before {
+    content: none !important;
+}
+
+/* Animation for ticker entrance */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.fomo-notification {
+    animation: slideInRight 0.5s ease-out !important;
+}
+
+/* Bottom positioning for ticker */
+.fomo-container,
+.notification-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9999;
+    max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    .fomo-container,
+    .notification-container {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        max-width: none;
+    }
+    
+    .fomo-notification,
+    .notification {
+        font-size: 14px;
+        padding: 0.875rem 1.25rem !important;
+    }
+}
+
+/* Glassmorphism shine effect */
+.fomo-notification::after,
+.notification::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(212, 175, 55, 0.5) 50%,
+        transparent 100%);
+}
+
+
+/* Glassmorphism Activity Ticker */
+.fomo-notification,
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 320px;
+    padding: 16px 20px;
+    background: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(212, 175, 55, 0.1);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.5;
+    z-index: 9999;
+    animation: slideInRight 0.4s ease-out;
+    transition: all 0.3s ease;
+}
+
+.fomo-notification:hover,
+.notification:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(212, 175, 55, 0.3);
+    border-color: rgba(212, 175, 55, 0.4);
+}
+
+.notification-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.notification-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #D4AF37;
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.5));
+}
+
+.notification strong {
+    color: #D4AF37;
+    font-weight: 600;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .fomo-notification,
+    .notification {
+        bottom: 10px;
+        right: 10px;
+        max-width: calc(100vw - 20px);
+        font-size: 12px;
+        padding: 12px 16px;
+    }
+}
