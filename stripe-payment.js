@@ -128,7 +128,18 @@ function getCoinDataById(coinId) {
 }
 
 // Open payment modal with crypto options
-function openPaymentModal(coinData) {
+function openPaymentModal(coinData, initialQuantity) {
+    // Get initial quantity from parameter or localStorage or default to 1
+    let numShares = initialQuantity || 1;
+    
+    // Try to get from detail page calculator if available
+    if (!initialQuantity) {
+        const detailPageQuantity = document.getElementById('shareQuantity');
+        if (detailPageQuantity) {
+            numShares = parseInt(detailPageQuantity.value) || 1;
+        }
+    }
+    
     // Create modal HTML with payment method selection
     const modalHTML = `
         <div class="payment-modal" id="paymentModal">
@@ -155,30 +166,52 @@ function openPaymentModal(coinData) {
                         <span>Available Shares</span>
                         <strong>${coinData.availableShares}/${coinData.totalShares}</strong>
                     </div>
+                    <div class="summary-row" style="border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 15px; margin-top: 10px;">
+                        <span style="color: rgba(255,255,255,0.9); font-size: 16px;">You will own</span>
+                        <strong id="ownershipPercent" style="color: var(--gold); font-size: 20px;">${((numShares / coinData.totalShares) * 100).toFixed(2)}%</strong>
+                    </div>
+                    <div style="text-align: center; color: rgba(255,255,255,0.7); font-size: 14px; margin-top: 10px;">
+                        of this historic coin
+                    </div>
                 </div>
                 
                 <form id="investmentForm" class="investment-form">
+                    <!-- Ownership Percentage Slider -->
                     <div class="form-group">
-                        <label for="numShares">Number of Shares</label>
+                        <label for="ownershipSlider">
+                            Own <span id="ownershipPercentDisplay">0.1%</span> of this Historic Coin
+                        </label>
+                        <input type="range" id="ownershipSlider" class="ownership-slider" 
+                               min="0.1" max="10" step="0.1" value="0.1">
+                        <div class="slider-labels">
+                            <span>0.1%</span>
+                            <span>5%</span>
+                            <span>10%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="numShares">Number of Shares (1000 shares = 100%)</label>
                         <div class="quantity-selector">
                             <button type="button" class="qty-btn" onclick="updateQuantity(-1)">−</button>
-                            <input type="number" id="numShares" name="numShares" value="1" min="1" max="${coinData.availableShares}">
+                            <input type="number" id="numShares" name="numShares" value="${numShares}" min="1" max="${coinData.availableShares}" readonly>
                             <button type="button" class="qty-btn" onclick="updateQuantity(1)">+</button>
                         </div>
+                        <small class="input-hint">Shares auto-calculated from percentage slider</small>
                     </div>
                     
                     <div class="total-calculation">
                         <div class="calc-row">
                             <span>Subtotal</span>
-                            <span id="subtotal">$${coinData.sharePrice.toFixed(2)}</span>
+                            <span id="subtotal">$${(coinData.sharePrice * numShares).toFixed(2)}</span>
                         </div>
                         <div class="calc-row">
                             <span>Processing Fee (2.9% + $0.30)</span>
-                            <span id="processingFee">$${(coinData.sharePrice * 0.029 + 0.30).toFixed(2)}</span>
+                            <span id="processingFee">$${(coinData.sharePrice * numShares * 0.029 + 0.30).toFixed(2)}</span>
                         </div>
                         <div class="calc-row total">
                             <strong>Total Amount</strong>
-                            <strong id="totalAmount">$${(coinData.sharePrice * 1.029 + 0.30).toFixed(2)}</strong>
+                            <strong id="totalAmount">$${(coinData.sharePrice * numShares * 1.029 + 0.30).toFixed(2)}</strong>
                         </div>
                     </div>
                     
@@ -386,6 +419,13 @@ function updateCalculations() {
     document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
     document.getElementById('processingFee').textContent = `$${processingFee.toFixed(2)}`;
     document.getElementById('totalAmount').textContent = `$${total.toFixed(2)}`;
+    
+    // Update ownership percentage
+    const ownershipPercent = (numShares / coinData.totalShares) * 100;
+    const ownershipEl = document.getElementById('ownershipPercent');
+    if (ownershipEl) {
+        ownershipEl.textContent = ownershipPercent.toFixed(2) + '%';
+    }
 }
 
 // Handle payment submission

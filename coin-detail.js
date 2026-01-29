@@ -40,16 +40,23 @@ function proceedToCheckout() {
         return;
     }
     
-    // Store investment details in localStorage
-    localStorage.setItem('investmentCoinId', 'abbasid-dinar-773');
-    localStorage.setItem('investmentShares', shares);
-    localStorage.setItem('investmentAmount', document.getElementById('totalAmount').textContent);
+    // Get the coin ID from URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const coinId = urlParams.get('id') || 'abbasid-dinar-773';
     
-    // Redirect to checkout (or show modal)
-    alert('Checkout functionality coming soon!\n\nYour investment:\n' + shares + ' shares\nTotal: ' + document.getElementById('totalAmount').textContent);
+    // Get coin data based on URL parameter
+    const coinData = getCoinDataById(coinId);
     
-    // In production, redirect to:
-    // window.location.href = 'checkout.html?coin=abbasid-dinar-773&shares=' + shares;
+    if (coinData && typeof openPaymentModal === 'function') {
+        // Open Stripe payment modal from stripe-payment.js
+        openPaymentModal(coinData);
+    } else {
+        // Fallback: Store in localStorage and show message
+        localStorage.setItem('investmentCoinId', coinId);
+        localStorage.setItem('investmentShares', shares);
+        localStorage.setItem('investmentAmount', document.getElementById('totalAmount').textContent);
+        alert('Please ensure stripe-payment.js is loaded. Check the console for errors.');
+    }
 }
 
 // Tab Switching
@@ -161,3 +168,52 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Coin Detail Page Initialized');
     console.log('Keyboard shortcuts: R (reset), Space (rotate), F (fullscreen), +/- (adjust shares)');
 });
+
+// Helper function to get coin data - mirrors the one in stripe-payment.js
+// This ensures compatibility if stripe-payment.js isn't loaded yet
+function getCoinDataById(coinId) {
+    const coins = {
+        'abbasid-dinar-773': {
+            id: 'abbasid-dinar-773',
+            title: 'Abbasid Gold Dinar',
+            period: '157 AH / 773 CE',
+            caliph: 'Caliph al-Manṣūr',
+            sharePrice: 87.00,
+            totalValue: 87000,
+            availableShares: 287,
+            totalShares: 1000
+        },
+        'abbasid-dinar-780': {
+            id: 'abbasid-dinar-780',
+            title: 'Abbasid Gold Dinar',
+            period: '164 AH / 780 CE',
+            caliph: 'Caliph al-Mahdi',
+            sharePrice: 92.50,
+            totalValue: 92500,
+            availableShares: 412,
+            totalShares: 1000
+        },
+        'abbasid-dinar-800': {
+            id: 'abbasid-dinar-800',
+            title: 'Abbasid Gold Dinar',
+            period: '786–809 CE',
+            caliph: 'Harun al-Rashid',
+            sharePrice: 105.00,
+            totalValue: 105000,
+            availableShares: 523,
+            totalShares: 1000
+        },
+        'abbasid-dinar-920': {
+            id: 'abbasid-dinar-920',
+            title: 'Abbasid Gold Dinar',
+            period: 'AH 310 / 920 CE',
+            caliph: 'Al-Muqtadir',
+            sharePrice: 78.00,
+            totalValue: 78000,
+            availableShares: 523,
+            totalShares: 1000
+        }
+    };
+    
+    return coins[coinId];
+}
