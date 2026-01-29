@@ -1542,3 +1542,76 @@ body {
 body {
     padding-bottom: 60px;
 }
+
+/* Mobile Logo Fixes */
+@media (max-width: 768px) {
+    .logo-image {
+        height: 36px !important;
+        width: auto;
+        max-width: 120px;
+    }
+    
+    .logo-text {
+        font-size: 18px !important;
+        white-space: nowrap;
+    }
+    
+    .nav-container {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-image {
+        height: 32px !important;
+    }
+    
+    .logo-text {
+        font-size: 16px !important;
+    }
+}
+
+/* Mobile Screen Width Optimization - Max 360px */
+@media (max-width: 768px) {
+    body {
+        max-width: 360px;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    
+    .container {
+        max-width: 360px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin: 0 auto;
+    }
+    
+    .nav-container {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    
+    /* Prevent horizontal overflow */
+    * {
+        max-width: 100%;
+    }
+    
+    img, video, iframe, model-viewer {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Extra small screens - Force 360px max */
+@media (max-width: 480px) {
+    body {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    
+    .hero, .coin-detail-hero, section {
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

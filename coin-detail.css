@@ -994,3 +994,67 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Mobile Screen Width Optimization - Max 360px */
+@media (max-width: 768px) {
+    body {
+        max-width: 360px;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+    
+    .container {
+        max-width: 360px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin: 0 auto;
+    }
+    
+    .coin-detail-hero,
+    .coin-detail-content,
+    .investment-section {
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Coin cards on mobile */
+    .coin-card {
+        max-width: 340px;
+        margin: 0 auto 1rem;
+    }
+    
+    /* 3D Model viewer */
+    model-viewer {
+        max-width: 340px;
+        height: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Investment calculator */
+    .investment-calculator {
+        max-width: 340px;
+        margin: 0 auto;
+    }
+}
+
+/* Extra small screens - Force 360px max */
+@media (max-width: 480px) {
+    body {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+    
+    .coin-detail-hero, section {
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    /* Buttons full width on small screens */
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 340px;
+        margin: 0.5rem auto;
+    }
+}
