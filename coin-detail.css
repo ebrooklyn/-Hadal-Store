@@ -1,0 +1,996 @@
+/* ================================================
+   COIN DETAIL PAGE STYLES
+   ================================================ */
+
+/* Breadcrumb Navigation */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-lg) 0;
+    font-size: 0.9rem;
+    color: var(--hadal-gray-300);
+}
+
+.breadcrumb a {
+    color: var(--hadal-gray-300);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--hadal-gold);
+}
+
+.breadcrumb span {
+    color: var(--hadal-gray-500);
+}
+
+/* Coin Detail Hero */
+.coin-detail-hero {
+    padding: 100px 0 var(--spacing-2xl);
+    background: linear-gradient(135deg, var(--hadal-abyss) 0%, var(--hadal-deep) 100%);
+}
+
+.coin-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    margin-top: var(--spacing-xl);
+}
+
+/* 3D Viewer Section */
+.coin-viewer-section {
+    position: sticky;
+    top: 100px;
+}
+
+.coin-viewer-container {
+    position: relative;
+    background: linear-gradient(135deg, var(--hadal-teal) 0%, var(--hadal-azure) 100%);
+    border: 2px solid var(--hadal-gold);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.coin-detail-3d {
+    width: 100%;
+    height: 500px;
+    --poster-color: transparent;
+}
+
+.viewer-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+/* Certification Badges */
+.certification-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.cert-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: rgba(26, 77, 92, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-md);
+}
+
+.cert-badge svg {
+    width: 32px;
+    height: 32px;
+    color: var(--hadal-gold);
+    flex-shrink: 0;
+}
+
+.cert-label {
+    font-size: 0.75rem;
+    color: var(--hadal-gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cert-value {
+    font-weight: 600;
+    color: var(--hadal-white);
+}
+
+/* Coin Info Section */
+.coin-info-section {
+}
+
+.coin-header {
+    margin-bottom: var(--spacing-xl);
+}
+
+.coin-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+    margin-bottom: var(--spacing-sm);
+}
+
+.coin-meta {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--hadal-gray-200);
+    font-size: 1rem;
+}
+
+.meta-item svg {
+    width: 18px;
+    height: 18px;
+    color: var(--hadal-gold);
+}
+
+/* Investment Summary */
+.investment-summary {
+    background: rgba(26, 77, 92, 0.3);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.price-box {
+    display: inline-block;
+    margin-right: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.price-label {
+    font-size: 0.85rem;
+    color: var(--hadal-gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.price-value {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--hadal-white);
+}
+
+.price-value.primary {
+    color: var(--hadal-gold);
+}
+
+.funding-status {
+    margin-top: var(--spacing-md);
+}
+
+.funding-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.funding-percentage {
+    font-weight: 600;
+    color: var(--hadal-gold);
+}
+
+.funding-shares {
+    font-size: 0.85rem;
+    color: var(--hadal-gray-300);
+}
+
+/* Investment Calculator */
+.investment-calculator {
+    background: rgba(10, 25, 47, 0.6);
+    border: 2px solid var(--hadal-gold);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+}
+
+.calculator-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+    margin-bottom: var(--spacing-lg);
+}
+
+.calculator-controls {
+    margin-bottom: var(--spacing-lg);
+}
+
+.shares-input {
+    margin-bottom: var(--spacing-lg);
+}
+
+.shares-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--hadal-gray-200);
+    font-weight: 500;
+}
+
+.input-group {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.quantity-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--hadal-teal);
+    border: 1px solid var(--hadal-gold);
+    border-radius: var(--radius-md);
+    color: var(--hadal-gold);
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    background: var(--hadal-gold);
+    color: var(--hadal-deep);
+}
+
+.input-group input {
+    flex: 1;
+    height: 50px;
+    padding: 0 var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-md);
+    color: var(--hadal-white);
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--hadal-gold);
+}
+
+/* Investment Breakdown */
+.investment-breakdown {
+    background: rgba(26, 77, 92, 0.3);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.breakdown-row:last-of-type {
+    border-bottom: none;
+}
+
+.breakdown-row.total {
+    margin-top: 0.5rem;
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--hadal-gold);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+}
+
+.amount {
+    font-weight: 600;
+    color: var(--hadal-white);
+}
+
+.ownership-info {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--hadal-gold);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    color: var(--hadal-gray-200);
+}
+
+.ownership-info strong {
+    color: var(--hadal-gold);
+}
+
+.investment-disclaimer {
+    display: flex;
+    align-items: start;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+    color: var(--hadal-gray-300);
+}
+
+.investment-disclaimer svg {
+    width: 16px;
+    height: 16px;
+    color: #ef4444;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* Details Tabs */
+.coin-details-section {
+    padding: var(--spacing-2xl) 0;
+    background: var(--hadal-deep);
+}
+
+.details-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 2px solid rgba(212, 175, 55, 0.2);
+    overflow-x: auto;
+}
+
+.tab-btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: none;
+    border: none;
+    color: var(--hadal-gray-300);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.tab-btn:hover {
+    color: var(--hadal-gold);
+}
+
+.tab-btn.active {
+    color: var(--hadal-gold);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--hadal-gold);
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+}
+
+.content-main {
+}
+
+.content-main h2 {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+    margin-bottom: var(--spacing-lg);
+}
+
+.content-main h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--hadal-white);
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.content-main p {
+    color: var(--hadal-gray-200);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.lead {
+    font-size: 1.2rem !important;
+    font-weight: 500;
+    color: var(--hadal-gray-100) !important;
+}
+
+/* Specifications Grid */
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+}
+
+.spec-item {
+    padding: var(--spacing-md);
+    background: rgba(26, 77, 92, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-md);
+}
+
+.spec-label {
+    font-size: 0.85rem;
+    color: var(--hadal-gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.spec-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--hadal-white);
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(26, 77, 92, 0.2);
+    border-radius: var(--radius-md);
+}
+
+.feature-list svg {
+    width: 24px;
+    height: 24px;
+    color: var(--hadal-gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.feature-list li div {
+    color: var(--hadal-gray-200);
+    line-height: 1.6;
+}
+
+.feature-list strong {
+    color: var(--hadal-white);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+/* Info Cards */
+.info-card {
+    background: rgba(26, 77, 92, 0.3);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.info-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+    margin-bottom: var(--spacing-md);
+}
+
+.fact-item {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.fact-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.fact-item svg {
+    width: 24px;
+    height: 24px;
+    color: var(--hadal-gold);
+    flex-shrink: 0;
+}
+
+.fact-label {
+    font-size: 0.85rem;
+    color: var(--hadal-gray-400);
+    margin-bottom: 0.25rem;
+}
+
+.fact-value {
+    font-weight: 600;
+    color: var(--hadal-white);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: var(--spacing-xl);
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--hadal-gold) 0%, transparent 100%);
+}
+
+.timeline-item {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.timeline-dot {
+    width: 18px;
+    height: 18px;
+    background: var(--hadal-gold);
+    border: 3px solid var(--hadal-deep);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-left: -30px;
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-title {
+    font-weight: 600;
+    color: var(--hadal-white);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: var(--hadal-gray-400);
+}
+
+/* Provenance Chain */
+.provenance-chain {
+    margin: var(--spacing-xl) 0;
+}
+
+.provenance-item {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.provenance-item:last-child {
+    border-bottom: none;
+}
+
+.prov-year {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+}
+
+.prov-content strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--hadal-white);
+    margin-bottom: 0.5rem;
+}
+
+.prov-content p {
+    color: var(--hadal-gray-300);
+    line-height: 1.6;
+}
+
+/* Tables */
+.valuation-table,
+.fee-structure,
+.performance-table {
+    margin: var(--spacing-lg) 0;
+}
+
+.val-row,
+.fee-item,
+.perf-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.fee-item {
+    padding: var(--spacing-lg);
+    background: rgba(26, 77, 92, 0.2);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    border-bottom: none;
+}
+
+.fee-name {
+    flex: 1;
+}
+
+.fee-name strong {
+    display: block;
+    color: var(--hadal-white);
+    margin-bottom: 0.25rem;
+}
+
+.fee-name p {
+    font-size: 0.85rem;
+    color: var(--hadal-gray-400);
+    margin: 0;
+}
+
+.fee-amount {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+    margin-left: var(--spacing-lg);
+}
+
+.perf-row.header {
+    font-weight: 700;
+    color: var(--hadal-gray-200);
+    background: rgba(26, 77, 92, 0.3);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.positive {
+    color: #10b981;
+}
+
+.disclaimer-small {
+    font-size: 0.85rem;
+    color: var(--hadal-gray-400);
+    font-style: italic;
+    margin-top: var(--spacing-md);
+}
+
+/* Risk List */
+.risk-list {
+    list-style: none;
+    padding: 0;
+}
+
+.risk-list li {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 3px solid #ef4444;
+    border-radius: var(--radius-sm);
+    color: var(--hadal-gray-200);
+}
+
+.risk-list strong {
+    color: var(--hadal-white);
+}
+
+/* Document List */
+.document-list {
+    margin: var(--spacing-lg) 0;
+}
+
+.document-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: rgba(26, 77, 92, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.document-item:hover {
+    border-color: var(--hadal-gold);
+    transform: translateX(5px);
+}
+
+.doc-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--hadal-gold);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.doc-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--hadal-deep);
+}
+
+.doc-info {
+    flex: 1;
+}
+
+.doc-info h4 {
+    font-size: 1.1rem;
+    color: var(--hadal-white);
+    margin-bottom: 0.25rem;
+}
+
+.doc-info p {
+    font-size: 0.9rem;
+    color: var(--hadal-gray-300);
+    margin: 0 0 0.5rem 0;
+}
+
+.doc-meta {
+    font-size: 0.75rem;
+    color: var(--hadal-gray-500);
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+/* Legal Notice */
+.legal-notice {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-xl);
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.legal-notice svg {
+    width: 32px;
+    height: 32px;
+    color: #ef4444;
+    flex-shrink: 0;
+}
+
+.legal-notice strong {
+    display: block;
+    color: var(--hadal-white);
+    margin-bottom: 0.5rem;
+}
+
+.legal-notice p {
+    color: var(--hadal-gray-200);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Related Section */
+.related-section {
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, var(--hadal-teal) 0%, var(--hadal-azure) 100%);
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.related-card {
+    background: rgba(10, 25, 47, 0.6);
+    border: 2px solid rgba(212, 175, 55, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.related-card:hover {
+    border-color: var(--hadal-gold);
+    transform: translateY(-5px);
+}
+
+.related-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.placeholder-coin-small {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 50%;
+}
+
+.placeholder-coin-small svg {
+    width: 100px;
+    height: 100px;
+    color: var(--hadal-gold);
+    opacity: 0.3;
+}
+
+.related-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--hadal-white);
+    margin-bottom: 0.5rem;
+}
+
+.related-card p {
+    color: var(--hadal-gray-300);
+    margin-bottom: var(--spacing-md);
+}
+
+.related-price {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+    margin-bottom: 0.5rem;
+}
+
+.related-status {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(100, 116, 139, 0.3);
+    color: var(--hadal-white);
+    border-radius: var(--radius-md);
+    font-size: 0.85rem;
+}
+
+/* Projection Calculator */
+.projection-calc {
+}
+
+.projection-calc label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--hadal-gray-200);
+    font-weight: 500;
+}
+
+.projection-calc input,
+.projection-calc select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-md);
+    color: var(--hadal-white);
+    font-family: var(--font-body);
+}
+
+.projection-calc input:focus,
+.projection-calc select:focus {
+    outline: none;
+    border-color: var(--hadal-gold);
+}
+
+.projection-result {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-lg);
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid var(--hadal-gold);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.proj-label {
+    font-size: 0.85rem;
+    color: var(--hadal-gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.proj-value {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--hadal-gold);
+    margin-bottom: 0.5rem;
+}
+
+.proj-note {
+    font-size: 0.75rem;
+    color: var(--hadal-gray-400);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .coin-detail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .coin-viewer-section {
+        position: relative;
+        top: 0;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .specs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .coin-title {
+        font-size: 2rem;
+    }
+    
+    .certification-badges {
+        grid-template-columns: 1fr;
+    }
+    
+    .price-box {
+        display: block;
+        margin-right: 0;
+    }
+    
+    .details-tabs {
+        flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+        flex: 1;
+        min-width: 100px;
+    }
+    
+    .provenance-item {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+    
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+}

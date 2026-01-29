@@ -526,3 +526,84 @@ window.HadalStore = {
     toggleFullscreen,
     showNotification
 };
+
+
+// ======================
+// FOMO FEATURES
+// ======================
+
+// Purchase Notifications
+const purchaseNotifications = [
+    { buyer: "Michael from London", action: "just purchased 5 shares of Harun al-Rashid coin", time: "2m ago" },
+    { buyer: "Sarah from Dubai", action: "invested $2,175 in al-Mahdi coin", time: "5m ago" },
+    { buyer: "James from New York", action: "bought 3 shares of al-Manṣūr coin", time: "8m ago" },
+    { buyer: "Fatima from Cairo", action: "purchased 7 shares of Al-Muqtadir coin", time: "12m ago" },
+    { buyer: "Robert from Singapore", action: "just invested $5,250 in Harun al-Rashid", time: "15m ago" },
+    { buyer: "Aisha from Istanbul", action: "bought 4 shares of al-Mahdi coin", time: "18m ago" },
+    { buyer: "David from Paris", action: "invested $1,740 in al-Manṣūr coin", time: "22m ago" },
+    { buyer: "Maria from Barcelona", action: "purchased 6 shares of Al-Muqtadir", time: "25m ago" },
+    { buyer: "Ahmed from Riyadh", action: "just bought 8 shares of Harun al-Rashid", time: "28m ago" },
+    { buyer: "Emma from Toronto", action: "invested $3,150 in al-Mahdi coin", time: "32m ago" }
+];
+
+let notificationIndex = 0;
+
+function showPurchaseNotification() {
+    const notification = document.getElementById('purchase-notification');
+    if (!notification) return;
+    
+    const data = purchaseNotifications[notificationIndex];
+    
+    notification.querySelector('.notification-buyer').textContent = data.buyer;
+    notification.querySelector('.notification-action').innerHTML = `${data.action} <span class="time-ago">${data.time}</span>`;
+    
+    notification.classList.remove('hidden');
+    notification.classList.add('show');
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.classList.add('hidden');
+        }, 300);
+    }, 5000);
+    
+    notificationIndex = (notificationIndex + 1) % purchaseNotifications.length;
+}
+
+// Show first notification after 3 seconds, then every 15 seconds
+setTimeout(() => {
+    showPurchaseNotification();
+    setInterval(showPurchaseNotification, 15000);
+}, 3000);
+
+// Price Ticker Animation
+const ticker = document.querySelector('.ticker-content');
+if (ticker) {
+    // Clone content for seamless loop
+    const tickerClone = ticker.cloneNode(true);
+    ticker.parentElement.appendChild(tickerClone);
+    
+    // Simulate price updates every 10 seconds
+    setInterval(() => {
+        const priceChanges = document.querySelectorAll('.price-change');
+        priceChanges.forEach(change => {
+            const isUp = Math.random() > 0.4; // 60% chance of increase
+            const percentage = (Math.random() * 4).toFixed(1);
+            change.textContent = `${isUp ? '+' : '-'}${percentage}%`;
+            change.className = `price-change ${isUp ? 'up' : 'down'}`;
+        });
+    }, 10000);
+}
+
+// Testimonials Scroll
+const testimonialsTrack = document.querySelector('.testimonials-track');
+if (testimonialsTrack) {
+    // Clone testimonials for infinite scroll
+    const testimonials = Array.from(testimonialsTrack.children);
+    testimonials.forEach(testimonial => {
+        const clone = testimonial.cloneNode(true);
+        testimonialsTrack.appendChild(clone);
+    });
+}
+
+console.log('✅ FOMO features initialized');

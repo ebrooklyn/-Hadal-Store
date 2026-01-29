@@ -1288,3 +1288,236 @@ body {
 .mb-2 { margin-bottom: var(--spacing-sm); }
 .mb-3 { margin-bottom: var(--spacing-md); }
 .mb-4 { margin-bottom: var(--spacing-lg); }
+
+
+/* ======================
+   FOMO ELEMENTS
+   ====================== */
+
+/* Price Ticker */
+.price-ticker {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #0A192F 0%, #1A4D5C 100%);
+    border-top: 2px solid #D4AF37;
+    padding: 12px 0;
+    z-index: 999;
+    overflow: hidden;
+    box-shadow: 0 -4px 20px rgba(212, 175, 55, 0.2);
+}
+
+.ticker-content {
+    display: flex;
+    gap: 60px;
+    animation: tickerScroll 30s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes tickerScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.ticker-item {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ticker-item strong {
+    color: #D4AF37;
+    font-weight: 600;
+    margin: 0 4px;
+}
+
+.price-change {
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.price-change.up {
+    color: #10B981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.price-change.down {
+    color: #EF4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Purchase Notification Popup */
+.purchase-notification {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    max-width: 350px;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 4px solid #D4AF37;
+}
+
+.purchase-notification.hidden {
+    opacity: 0;
+    transform: translateX(400px);
+    pointer-events: none;
+}
+
+.purchase-notification.show {
+    opacity: 1;
+    transform: translateX(0);
+    animation: slideInBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideInBounce {
+    0% {
+        transform: translateX(400px);
+    }
+    60% {
+        transform: translateX(-10px);
+    }
+    80% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.notification-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.notification-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.notification-text {
+    flex: 1;
+}
+
+.notification-buyer {
+    font-weight: 600;
+    color: #0A192F;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.notification-action {
+    color: #6B7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.time-ago {
+    color: #D4AF37;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+/* Scrolling Testimonials */
+.testimonials-scroll {
+    background: #F9FAFB;
+    padding: 60px 0;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.testimonials-track {
+    display: flex;
+    gap: 24px;
+    animation: testimonialScroll 40s linear infinite;
+}
+
+@keyframes testimonialScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.testimonials-track:hover {
+    animation-play-state: paused;
+}
+
+.testimonial-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    min-width: 400px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E5E7EB;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-stars {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: #D4AF37;
+}
+
+.testimonial-card p {
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 16px 0;
+    font-style: italic;
+}
+
+.testimonial-author {
+    color: #6B7280;
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .price-ticker {
+        padding: 10px 0;
+    }
+    
+    .ticker-item {
+        font-size: 12px;
+    }
+    
+    .purchase-notification {
+        bottom: 70px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+    
+    .testimonial-card {
+        min-width: 320px;
+        padding: 24px;
+    }
+}
+
+/* Add padding to body to account for fixed ticker */
+body {
+    padding-bottom: 60px;
+}
